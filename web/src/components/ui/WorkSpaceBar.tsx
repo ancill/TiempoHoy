@@ -1,12 +1,22 @@
-import { FaChevronDown } from 'react-icons/fa'
+import { BsPeopleFill } from 'react-icons/bs'
+import { FaBrain, FaChevronDown, FaProjectDiagram, FaReadme } from 'react-icons/fa'
+import { GiTeamIdea } from 'react-icons/gi'
 
 const ChangeWorkSpaceButton = () => {
   return (
-    <div className='dropdown dropdown-bottom'>
-      <label tabIndex={0} className='btn m-1'>
-        Ancill's workspace
-        <FaChevronDown />
+    <div className='dropdown dropdown-bottom w-56'>
+      <label
+        tabIndex={0}
+        className='btn m-1 w-52 btn-ghost flex flex-col px-0 font-semibold normal-case'
+      >
+        <div className='flex place-self-start gap-5 text-lg items-center'>
+          <div>My workspace</div>
+          <FaChevronDown className='text-slate-500' />
+        </div>
+
+        <div className=' text-slate-500 place-self-start uppercase text-xs'>Ancill team</div>
       </label>
+
       <ul tabIndex={0} className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>
         <li>
           <a>Item 1</a>
@@ -19,54 +29,79 @@ const ChangeWorkSpaceButton = () => {
   )
 }
 
+interface LinkButtonType {
+  title: string
+  icon: JSX.Element
+}
+
+const WorkSpaceLinkButton = ({ title, icon }: LinkButtonType) => {
+  return (
+    <button className='btn btn-ghost gap-2 mb-2 btn-xs place-self-start'>
+      {icon}
+      {title}
+    </button>
+  )
+}
+
+const WorkSpaceGroupButtons = ({
+  groupTitle,
+  childLinks,
+}: {
+  groupTitle: string
+  childLinks: {
+    title: string
+    icon: JSX.Element
+  }[]
+}) => {
+  return (
+    <div className='flex flex-col'>
+      <div className='uppercase  text-slate-400 text-xs font-semibold mb-2 pl-2'>{groupTitle}</div>
+
+      {childLinks.map((link) => {
+        return <WorkSpaceLinkButton {...link} key={link.title} />
+      })}
+    </div>
+  )
+}
+
 const WorkSpaceBar = () => {
   return (
-    <div className='justify-start items-start align-middle h-screen menu bg-base-200 w-56 rounded-r-md'>
-      <div className='flex-1'>
+    <div className='flex h-screen bg-base-200'>
+      <div className='flex flex-col'>
         <ChangeWorkSpaceButton />
-      </div>
-      <div className='flex-none self-center'>
-        <div className='dropdown dropdown-end'>
-          <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
-            <div className='w-10 rounded-full'>
-              <img src='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg' />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'
-          >
-            <li>
-              <a className='justify-between'>
-                Profile
-                <span className='badge'>New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+        <div className='divider'></div>
+        <div className='flex flex-col gap-8'>
+          <WorkSpaceGroupButtons
+            childLinks={[
+              {
+                icon: <FaReadme />,
+                title: 'Reports',
+              },
+              {
+                icon: <FaBrain />,
+                title: 'Insights',
+              },
+            ]}
+            groupTitle='Analyze'
+          />
+          <WorkSpaceGroupButtons
+            childLinks={[
+              {
+                icon: <FaProjectDiagram />,
+                title: 'Projects',
+              },
+              {
+                icon: <BsPeopleFill />,
+                title: 'Clients',
+              },
+              {
+                icon: <GiTeamIdea />,
+                title: 'Team',
+              },
+            ]}
+            groupTitle='Analyze'
+          />
         </div>
-      </div>
-      <div className='flex-none self-center'>
-        <button className='btn btn-square btn-ghost'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            className='inline-block w-5 h-5 stroke-current'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth='2'
-              d='M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z'
-            ></path>
-          </svg>
-        </button>
       </div>
     </div>
   )
