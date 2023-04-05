@@ -1,5 +1,13 @@
+import SettingsBar from '../../components/ui/SettingsBar'
+import WorkSpaceBar from '../../components/ui/WorkSpaceBar'
+
 const Home = () => {
-  return <div>Home</div>
+  return (
+    <div className='flex'>
+      <SettingsBar />
+      <WorkSpaceBar />
+    </div>
+  )
 }
 
 export default Home
