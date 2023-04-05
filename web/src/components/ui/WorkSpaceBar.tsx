@@ -1,14 +1,15 @@
+import { FaChevronDown } from 'react-icons/fa'
+
 const ChangeWorkSpaceButton = () => {
   return (
     <div className='dropdown dropdown-bottom'>
       <label tabIndex={0} className='btn m-1'>
-        Click
-        <i className='fa-solid fa-chevron-down'></i>
+        Ancill's workspace
+        <FaChevronDown />
       </label>
       <ul tabIndex={0} className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>
         <li>
           <a>Item 1</a>
-          <i className='bi-alarm'></i>
         </li>
         <li>
           <a>Item 2</a>
