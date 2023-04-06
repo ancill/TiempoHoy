@@ -3,7 +3,7 @@ import WorkSpaceBar from '../../components/ui/WorkSpaceBar'
 
 const Home = () => {
   return (
-    <div className='flex'>
+    <div className='flex h-full'>
       <SettingsBar />
       <WorkSpaceBar />
     </div>
