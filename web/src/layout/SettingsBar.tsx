@@ -55,7 +55,7 @@ const Profile = () => {
 }
 const SettingsBar = () => {
   return (
-    <div className='flex justify-start items-start align-middle h-screen w-fit bg-base-300 flex-col'>
+    <div className='flex justify-start items-start align-middle h-screen bg-base-300 flex-col'>
       <div className='flex-1 my-2 mx-1'>
         <Profile />
       </div>

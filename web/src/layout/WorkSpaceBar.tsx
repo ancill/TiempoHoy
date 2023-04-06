@@ -8,20 +8,19 @@ const ChangeWorkSpaceButton = () => {
       <div className='dropdown dropdown-bottom'>
         <label
           tabIndex={0}
-          className='btn btn-ghost flex justify-between w-56 font-semibold normal-case px-2 my-2'
+          className='btn btn-ghost flex justify-between font-semibold normal-case px-2 my-2'
         >
-          <div className='flex flex-col gap-2'>
-            <div className='text-sm'>My workspace</div>
-            <div className=' text-slate-500 uppercase text-xs mr-4'>Ancill team</div>
-          </div>
+          <div className='text-sm'>My workspace</div>
           <label className='swap swap-rotate'>
             <input type='checkbox' />
             <FaChevronDown className='swap-off fill-current' />
             <FaChevronUp className='swap-on fill-current' />
           </label>
+
+          <div className=' text-slate-500 uppercase text-xs mr-4'>Ancill team</div>
         </label>
 
-        <ul tabIndex={0} className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>
+        <ul tabIndex={0} className='dropdown-content menu p-2 shadow bg-base-100 rounded-box'>
           <li>
             <a>Item 1</a>
           </li>
@@ -59,8 +58,8 @@ const WorkSpaceGroupButtons = ({
   }[]
 }) => {
   return (
-    <div className='flex flex-col w-56'>
-      <div className='uppercase  text-slate-400 text-xs font-semibold mb-2 pl-2'>{groupTitle}</div>
+    <div className='flex flex-col'>
+      <div className='uppercase text-slate-400 text-xs font-semibold mb-2 pl-2'>{groupTitle}</div>
 
       {childLinks.map((link) => {
         return <WorkSpaceLinkButton {...link} key={link.title} />
@@ -71,10 +70,10 @@ const WorkSpaceGroupButtons = ({
 
 const WorkSpaceBar = () => {
   return (
-    <div className='flex w-42 bg-base-200 relative'>
+    <div className='flex w-2/12 bg-base-200 relative'>
       <div className='flex flex-col'>
         <ChangeWorkSpaceButton />
-        <div className='divider'></div>
+        <div className='divider '></div>
 
         <div className='flex flex-col gap-y-4'>
           <WorkSpaceGroupButtons
