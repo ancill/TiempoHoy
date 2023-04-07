@@ -5,9 +5,9 @@ const StopWatch = () => {
   const { start, stop, time, reset, isRunning } = useStopWatch()
 
   return (
-    <div className='flex gap-4'>
-      <div>{time}</div>
-      <label className='swap swap-rotate'>
+    <div className='flex gap-4 items-center'>
+      <div className='w-16'>{time}</div>
+      <label className='swap swap-rotate '>
         <input onClick={isRunning ? stop : start} type='checkbox' />
         <div className='btn btn-circle swap-on '>
           <BsPlayFill className='fill-current w-12 h-12' />
@@ -22,13 +22,13 @@ const StopWatch = () => {
 
 const TrackInput = () => {
   return (
-    <div className='flex justify-between shadow-xl py-1'>
+    <div className='flex shadow-xl py-1 content-center'>
       <input
         type='text'
         placeholder='Type here'
-        className='input input-primary focus:outline-none input-lg max-w-xs h-20'
+        className='grow input input-ghost focus:outline-none input-lg h-20'
       />
-      <div className='flex'>
+      <div className='flex-none flex items-center gap-4 mr-4'>
         <div className='badge badge-primary gap-2 text-lg'>
           <BsDot />
           info
