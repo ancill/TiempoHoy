@@ -1,35 +1,31 @@
 import { BsPeopleFill } from 'react-icons/bs'
-import { FaBrain, FaChevronDown, FaChevronUp, FaProjectDiagram, FaReadme } from 'react-icons/fa'
+import { FaBrain, FaChevronDown, FaProjectDiagram, FaReadme } from 'react-icons/fa'
 import { GiTeamIdea } from 'react-icons/gi'
 
 const ChangeWorkSpaceButton = () => {
   return (
-    <>
-      <div className='dropdown dropdown-bottom'>
-        <label
-          tabIndex={0}
-          className='btn btn-ghost flex justify-between font-semibold normal-case px-2 my-2'
-        >
-          <div className='text-sm'>My workspace</div>
-          <label className='swap swap-rotate'>
-            <input type='checkbox' />
-            <FaChevronDown className='swap-off fill-current' />
-            <FaChevronUp className='swap-on fill-current' />
-          </label>
+    <div className='dropdown dropdown-bottom w-56'>
+      <label
+        tabIndex={0}
+        className='btn m-1 w-52 btn-ghost flex flex-col px-0 font-semibold normal-case'
+      >
+        <div className='flex place-self-start gap-5 text-lg items-center'>
+          <div>My workspace</div>
+          <FaChevronDown className='text-slate-500' />
+        </div>
 
-          <div className=' text-slate-500 uppercase text-xs mr-4'>Ancill team</div>
-        </label>
+        <div className=' text-slate-500 place-self-start uppercase text-xs'>Ancill team</div>
+      </label>
 
-        <ul tabIndex={0} className='dropdown-content menu p-2 shadow bg-base-100 rounded-box'>
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <a>Item 2</a>
-          </li>
-        </ul>
-      </div>
-    </>
+      <ul tabIndex={0} className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w3-52'>
+        <li>
+          <a>Item 1</a>
+        </li>
+        <li>
+          <a>Item 2</a>
+        </li>
+      </ul>
+    </div>
   )
 }
 
@@ -59,7 +55,7 @@ const WorkSpaceGroupButtons = ({
 }) => {
   return (
     <div className='flex flex-col'>
-      <div className='uppercase text-slate-400 text-xs font-semibold mb-2 pl-2'>{groupTitle}</div>
+      <div className='uppercase  text-slate-400 text-xs font-semibold mb-2 pl-2'>{groupTitle}</div>
 
       {childLinks.map((link) => {
         return <WorkSpaceLinkButton {...link} key={link.title} />
@@ -70,12 +66,11 @@ const WorkSpaceGroupButtons = ({
 
 const WorkSpaceBar = () => {
   return (
-    <div className='flex bg-base-200 relative'>
+    <div className='flex h-screen bg-base-200'>
       <div className='flex flex-col'>
         <ChangeWorkSpaceButton />
-        <div className='divider '></div>
-
-        <div className='flex flex-col gap-y-4'>
+        <div className='divider'></div>
+        <div className='flex flex-col gap-8'>
           <WorkSpaceGroupButtons
             childLinks={[
               {
