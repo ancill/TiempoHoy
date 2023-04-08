@@ -7,7 +7,11 @@ const TrackPage = () => {
     <div className='w-11/12'>
       <TrackInput />
       <TrackProgress />
-      <TrackList />
+      <div className='flex flex-col space-y-8'>
+        <TrackList headerDate={'Today'} />
+        <TrackList headerDate={'Yesterday'} />
+        <TrackList headerDate={'24.04.23'} />
+      </div>
     </div>
   )
 }

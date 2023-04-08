@@ -1,3 +1,5 @@
+import { ColorVariants, DefaultColors, DynamicTextColor } from '../../components/Colors'
+
 const TimeStats = ({ time, title }: { time: string; title: string }) => {
   return (
     <a className='py-1 px-2 inline-flex items-center uppercase font-semibold'>
@@ -6,29 +8,23 @@ const TimeStats = ({ time, title }: { time: string; title: string }) => {
     </a>
   )
 }
-const COLOR_PROGRESS = {
-  secondary: 'secondary',
-  primary: 'primary',
-  accent: 'accent',
-  info: 'info',
-  success: 'success',
-  warning: 'warning',
-  error: 'error',
-}
 
-type ColorProgress = keyof typeof COLOR_PROGRESS
-const Chart = ({ color }: { color: ColorProgress }) => {
+const Chart = ({ color }: { color: DefaultColors }) => {
   return (
     <div className='mr-1 w-full'>
-      <div className={`text-${color}`}>Proj 1</div>
-      <div className={`h-1 rounded-sm bg-${color}`}></div>
+      <div className={DynamicTextColor[color]}>Proj 1</div>
+      <progress
+        className={`${ColorVariants[color]} progress w-full`}
+        value='100'
+        max='100'
+      ></progress>
     </div>
   )
 }
 
 const TrackProgress = () => {
   return (
-    <div className='grid grid-cols-2 gap-2 py-5 px-4 gap-y-4'>
+    <div className='grid grid-cols-2 gap-2 py-5 px-5 gap-y-4'>
       <div className='flex items-center gap-2'>
         <span className='uppercase font-semibold text-xs'>This week</span>
       </div>
