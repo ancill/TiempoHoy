@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { WiDaySunny, WiNightClear } from 'react-icons/wi'
 const ThmemeSwitch = () => {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState('autumn')
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    setTheme(theme === 'dark' ? 'autumn' : 'dark')
   }
   // initially set the theme and "listen" for changes to apply them to the HTML tag
   useEffect(() => {
