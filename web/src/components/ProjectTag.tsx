@@ -1,7 +1,12 @@
-import React from 'react'
+import { BsDot } from 'react-icons/bs'
 
-const ProjectTag = () => {
-  return <div>ProjectTag</div>
+const ProjectBadge = () => {
+  return (
+    <div className='text-accent text-sm flex items-center'>
+      <BsDot className='w-12 h-12' />
+      <div>Home</div>
+    </div>
+  )
 }
 
-export default ProjectTag
+export default ProjectBadge

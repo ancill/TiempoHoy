@@ -1,11 +1,12 @@
+import ProjectBadge from '../../components/ProjectTag'
+
 const TrackRow = () => {
   return (
     <tr>
       <td>
-        <div>
-          <div>Make this APP</div>
-          <span>*</span>
-          <span className='ml-2'>copy of toggl</span>
+        <div className='flex items-center'>
+          <div className='mr-4'>Make this APP</div>
+          <ProjectBadge />
         </div>
       </td>
 
